@@ -1,0 +1,91 @@
+.topHeader {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: #f7f7f7;
+  height: 7vh;
+  justify-content: center;
+}
+
+.topHeaderContainer,
+.bottomHeaderContainer {
+  width: 90%;
+}
+
+.bottomHeaderContainer {
+  display: flex;
+  align-items: center;
+}
+
+.headerMenuUl {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.headerMenuUl>li:hover {
+  cursor: pointer;
+  color: #1f7d63;
+}
+
+.bottomHeader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.nameSite {
+  font-size: 30px;
+}
+.containerHeaderButton{
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.headerButton {
+  background-color: #1f7d63;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  color: #fff;
+  width: 150px;
+  height: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.headerButton:hover{
+  cursor: pointer;
+  background-color: #279b7a;
+}
+.containerSearchInput{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 100%;
+}
+.searchInput{
+  width: 90%;
+  height: 50px;
+  border: 1px solid;
+  border-radius: 10px 0 0 10px;
+}
+.searchButton{
+  width: 5%;
+  height: 50px;
+  border:none;
+  background-color: #1f7d63;
+  color:#fff;
+  border-radius: 0 10px 10px 0;
+}
+.searchButton:hover{
+  cursor: pointer;
+  background-color: #279b7a;
+}
