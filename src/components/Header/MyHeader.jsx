@@ -2,7 +2,8 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import classes from './MyHeader.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faCartShopping, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faUser } from '@fortawesome/free-regular-svg-icons'
 
 const MyHeader = () => {
   const navigate = useNavigate()
@@ -32,13 +33,21 @@ const MyHeader = () => {
           </div>
           <div className={classes.containerHeaderButton}>
             <button className={classes.headerButton}>
-              <FontAwesomeIcon icon={faBars}/>
+              <FontAwesomeIcon icon={faBars} />
               Каталог</button>
           </div>
 
           <div className={classes.containerSearchInput}>
-            <input type="text" className={classes.searchInput}/>
-            <button className={classes.searchButton}><FontAwesomeIcon icon = {faMagnifyingGlass}/></button>
+            <input type="text" className={classes.searchInput} placeholder='Поиск'/>
+            <button className={classes.searchButton}><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
+          </div>
+
+          <div className={classes.containerIcon}>
+            <FontAwesomeIcon icon={faUser} />
+            <div className={classes.cartShopping}>
+              <FontAwesomeIcon icon={faCartShopping} />
+              <p className={classes.priceBasket}>0 Br</p>
+            </div>
           </div>
         </div>
       </div>
