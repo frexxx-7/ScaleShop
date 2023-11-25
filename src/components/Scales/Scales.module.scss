@@ -1,0 +1,79 @@
+.scaleProductContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.scalseImage {
+  position: relative;
+  overflow: hidden;
+  width: 15vw;
+  height: 15vw;
+}
+
+.scalseImage>img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 15vw;
+  height: 15vw;
+  object-fit: cover;
+}
+
+.ScaleMain {
+  width: 15vw;
+}
+
+.scaleTitleContainer,
+.sclaePriceContainer {
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  align-items: center;
+}
+
+.scaleTitleContainer {
+  height: 40px;
+}
+
+.sclaePriceContainer {
+  height: 60px;
+}
+
+.scaleTitile {
+  font-size: 20px;
+  margin: 0;
+}
+
+.scalePrice {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.scaleButtonContainer {
+  width: 100%;
+}
+
+.scaleButton {
+  width: 100%;
+  background-color: #1f7d63;
+  border: none;
+  height: 40px;
+  border-radius: 5px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scaleButton>p {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.scaleButton:hover {
+  background-color: #279b7a;
+  cursor: pointer;
+}

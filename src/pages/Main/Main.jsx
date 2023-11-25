@@ -1,6 +1,7 @@
 import React from 'react'
 import classes from './Main.module.scss'
 import { Carousel } from 'react-carousel-minimal';
+import Scales from '../../components/Scales/Scales';
 
 const Main = () => {
   const data = [
@@ -24,38 +25,47 @@ const Main = () => {
   }
   return (
     <div className={classes.main}>
-      <div className={classes.sliderContainer}>
-        <div style={{ textAlign: "center" }}>
-          <div style={{
-            padding: "0 20px"
-          }}>
-            <Carousel
-              data={data}
-              time={2000}
-              width="1380px"
-              height="500px"
-              captionStyle={captionStyle}
-              slideNumberStyle={slideNumberStyle}
-              captionPosition="center"
-              dots={true}
-              pauseIconColor="white"
-              pauseIconSize="40px"
-              slideBackgroundColor="darkgrey"
-              slideImageFit="cover"
-              thumbnailWidth="100px"
-              style={{
-                textAlign: "center",
-                maxWidth: "1380px",
-                maxHeight: "500px",
-                margin: "20px auto",
-              }}
-            />
+      <div className={classes.mainContent}>
+        <div className={classes.sliderContainer}>
+          <div style={{ textAlign: "center" }}>
+            <div>
+              <Carousel
+                data={data}
+                time={2000}
+                width="1380px"
+                height="500px"
+                captionStyle={captionStyle}
+                slideNumberStyle={slideNumberStyle}
+                captionPosition="center"
+                dots={true}
+                pauseIconColor="white"
+                pauseIconSize="40px"
+                slideBackgroundColor="darkgrey"
+                slideImageFit="cover"
+                thumbnailWidth="100px"
+                style={{
+                  textAlign: "center",
+                  maxWidth: "1380px",
+                  maxHeight: "500px",
+                  margin: "20px auto",
+                }}
+              />
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className={classes.newScales}>
-              
+        <div className={classes.newScales}>
+          <div className={classes.headNewScales}>
+            <p className={classes.headNewScalesP}>Новое поступление</p>
+          </div>
+          <div className={classes.contentNewScales}>
+            <Scales />
+            <Scales />
+            <Scales />
+            <Scales />
+            <Scales />
+          </div>
+        </div>
       </div>
     </div>
   )
