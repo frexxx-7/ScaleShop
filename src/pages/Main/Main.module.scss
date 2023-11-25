@@ -19,5 +19,76 @@
 }
 .contentNewScales{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+.howChoiceScale{
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('./howChoiceScale.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% auto;
+  margin: 30px 0;
+}
+.howChoiceScaleContainer{
+  width: 90%;
+  color:#fff;
+  background-size: cover;
+  text-shadow: #000 1px 0 10px;
+}
+.howChoiceScaleContainer>h2{
+  font-weight: 700;
+  font-size: 32px;
+}
+.howChoiceScaleContainer>p{
+  font-size: 1.5rem;
+}
+.howChoiceButton{
+  background-color: #1f7d63;
+  border: none;
+  height: 35px;
+  border-radius: 5px;
+  color: #fff;
+  width: 200px;
+  font-size: 16px;
+}
+.howChoiceButton:hover {
+  background-color: #279b7a;
+  cursor: pointer;
+}
+.ourAdvantages{
+  margin: 30px 0;
+}
+.ourAdvantagesContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 40vh;
+}
+.ourAdnvantagesCard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 25%;
+}
+.ourAdvantagesDescription{
+  text-align: center;
+}
+.ourAdvantagesIcon>svg{
+  height: 80px;
+  color:#1f7d63;
+}
+.ourAdvantagesTitle{
+  font-weight: bold;
+  font-size: 18px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ourAdvantagesTitle>p{
+  margin: 0;
 }
