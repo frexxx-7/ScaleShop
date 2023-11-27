@@ -3,7 +3,9 @@ import classes from './Main.module.scss'
 import { Carousel } from 'react-carousel-minimal';
 import Scales from '../../components/Scales/Scales';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClipboard } from '@fortawesome/free-regular-svg-icons';
+import { faClipboard, faThumbsUp } from '@fortawesome/free-regular-svg-icons';
+import { faTruck } from '@fortawesome/free-solid-svg-icons';
+import Reviews from '../../components/Reviews/Reviews';
 
 const Main = () => {
   const data = [
@@ -123,27 +125,59 @@ const Main = () => {
 
             <div className={classes.ourAdnvantagesCard}>
               <div className={classes.ourAdvantagesIcon}>
-                <FontAwesomeIcon icon={faClipboard} />
+                <FontAwesomeIcon icon={faThumbsUp} />
               </div>
               <div className={classes.ourAdvantagesTitle}>
-                <p>Широкий ассортимент</p>
+                <p>Удобство покупки</p>
               </div>
               <div className={classes.ourAdvantagesDescription}>
-                <p>Мы закупаем фрукты и овощи по всему миру – от Эквадора до Китая. Более 400 сортов овощей и фруктов представлены на наших прилавках.</p>
+                <p>Клиенты могут просматривать и сравнивать различные модели электронных весов, делать заказы и оплачивать их онлайн, не выходя из дома или офиса.</p>
               </div>
             </div>
             <div className={classes.ourAdnvantagesCard}>
               <div className={classes.ourAdvantagesIcon}>
-                <FontAwesomeIcon icon={faClipboard} />
+                <FontAwesomeIcon icon={faTruck} />
               </div>
               <div className={classes.ourAdvantagesTitle}>
-                <p>Широкий ассортимент</p>
+                <p>Быстрая доставка</p>
               </div>
               <div className={classes.ourAdvantagesDescription}>
-                <p>Мы закупаем фрукты и овощи по всему миру – от Эквадора до Китая. Более 100 видов весов представлены на наших прилавках.</p>
+                <p>Обеспечиваемы быструю доставку заказанных товаров по указанному адресу, что позволяет клиентам получить свои электронные весы в кратчайшие сроки.</p>
               </div>
             </div>
 
+          </div>
+        </div>
+
+        <div className={classes.reviews}>
+          <div className={classes.headReviews}>
+            <p className={classes.headReviewsP}>Отзывы клиентов</p>
+          </div>
+          <div className={classes.contentReviews}>
+            <Reviews />
+            <Reviews />
+            <Reviews />
+          </div>
+        </div>
+
+        <div className={classes.feedback}>
+          <div className={classes.headFeedback}>
+            <p className={classes.headFeedbackP}>Обратная связь</p>
+          </div>
+          <div className={classes.contentFeedback}>
+            <div className={classes.feedbackForm}>
+              <input type="text" className={classes.feedbackInput} placeholder='Имя*' />
+              <input type="text" className={classes.feedbackInput} placeholder='Телефон' />
+              <input type="text" className={classes.feedbackInput} placeholder='Почта*' />
+              <textarea cols="30" rows="10" className={classes.feedbackArea} placeholder='Комментарий'></textarea>
+              <div className={classes.feedbakcCheckBoxContainer}>
+                <input type="checkbox" />
+                <p>Настоящим подтверждаю, что я ознакомлен и согласен с условиями оферты и политики конфиденциальности *</p>
+              </div>
+              <div className={classes.feedbackButtonContainer}>
+                <button className={classes.feedbackButton}>Отправить</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,27 +1,42 @@
-.main{
+.main {
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
 }
-.mainContent{
+
+.mainContent {
   width: 90%;
 }
-.newScales{
+
+.newScales {
   margin: 30px 0;
 }
-.headNewScales{
+
+.headNewScales,
+.headReviews {
   height: 8vh;
 }
-.headNewScalesP{
+
+.headNewScalesP,
+.headReviewsP,
+.headFeedbackP {
   font-size: 30px;
   font-weight: bold;
 }
-.contentNewScales{
+
+.contentNewScales,
+.contentReviews {
   display: flex;
   justify-content: space-between;
+  min-height: 20vh;
 }
-.howChoiceScale{
+
+.contentReviews {
+  flex-wrap: wrap;
+}
+
+.howChoiceScale {
   height: 50vh;
   display: flex;
   justify-content: center;
@@ -32,20 +47,24 @@
   background-size: 100% auto;
   margin: 30px 0;
 }
-.howChoiceScaleContainer{
+
+.howChoiceScaleContainer {
   width: 90%;
-  color:#fff;
+  color: #fff;
   background-size: cover;
   text-shadow: #000 1px 0 10px;
 }
-.howChoiceScaleContainer>h2{
+
+.howChoiceScaleContainer>h2 {
   font-weight: 700;
   font-size: 32px;
 }
-.howChoiceScaleContainer>p{
+
+.howChoiceScaleContainer>p {
   font-size: 1.5rem;
 }
-.howChoiceButton{
+
+.howChoiceButton {
   background-color: #1f7d63;
   border: none;
   height: 35px;
@@ -54,34 +73,41 @@
   width: 200px;
   font-size: 16px;
 }
+
 .howChoiceButton:hover {
   background-color: #279b7a;
   cursor: pointer;
 }
-.ourAdvantages{
+
+.ourAdvantages {
   margin: 30px 0;
 }
-.ourAdvantagesContainer{
+
+.ourAdvantagesContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   min-height: 40vh;
 }
-.ourAdnvantagesCard{
+
+.ourAdnvantagesCard {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 25%;
 }
-.ourAdvantagesDescription{
+
+.ourAdvantagesDescription {
   text-align: center;
 }
-.ourAdvantagesIcon>svg{
+
+.ourAdvantagesIcon>svg {
   height: 80px;
-  color:#1f7d63;
+  color: #1f7d63;
 }
-.ourAdvantagesTitle{
+
+.ourAdvantagesTitle {
   font-weight: bold;
   font-size: 18px;
   height: 60px;
@@ -89,6 +115,92 @@
   justify-content: center;
   align-items: center;
 }
-.ourAdvantagesTitle>p{
+
+.ourAdvantagesTitle>p {
   margin: 0;
+}
+
+.reviews {
+  margin: 40px 0;
+}
+
+.headFeedback {
+  display: flex;
+  justify-content: center;
+}
+
+.feedback {
+  margin: 40px 0;
+}
+
+.feedbackForm {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  width: 600px;
+  min-height: 70vh;
+}
+
+.contentFeedback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feedbackInput {
+  width: 100%;
+  height: 20px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  padding: 5px;
+  box-sizing: border-box;
+  border: #808080 1px solid;
+}
+.feedbackInput:focus{
+  outline: none;
+  border: #808080 3px solid;
+}
+
+.feedbackInput::placeholder {
+  font-size: 1rem;
+}
+
+.feedbackArea {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  padding: 10px;
+  border: #808080 1px solid;
+  box-sizing: border-box;
+}
+.feedbackArea:focus{
+  outline: none;
+  border: #808080 3px solid;
+}
+.feedbackArea::placeholder {
+  font-size: 1rem;
+}
+.feedbakcCheckBoxContainer{
+  display: flex;
+}
+.feedbakcCheckBoxContainer>input{
+  margin-right: 10px;
+  font-size: 1rem;
+}
+.feedbackButton{
+  background-color: #1f7d63;
+  border:none;
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  color:#fff;
+  font-size: 1rem;
+}
+.feedbackButton:hover{
+  background-color: #279b7a;
+  cursor: pointer;
+  
 }
