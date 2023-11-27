@@ -6,8 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClipboard, faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import { faTruck } from '@fortawesome/free-solid-svg-icons';
 import Reviews from '../../components/Reviews/Reviews';
+import { useNavigate } from 'react-router-dom';
 
 const Main = () => {
+  
   const data = [
     {
       image: "./slider-1.jpeg",
@@ -169,7 +171,7 @@ const Main = () => {
               <input type="text" className={classes.feedbackInput} placeholder='Имя*' />
               <input type="text" className={classes.feedbackInput} placeholder='Телефон' />
               <input type="text" className={classes.feedbackInput} placeholder='Почта*' />
-              <textarea cols="30" rows="10" className={classes.feedbackArea} placeholder='Комментарий'></textarea>
+              <textarea cols="30" rows="10" className={classes.feedbackArea} placeholder='Комментарий' ></textarea>
               <div className={classes.feedbakcCheckBoxContainer}>
                 <input type="checkbox" />
                 <p>Настоящим подтверждаю, что я ознакомлен и согласен с условиями оферты и политики конфиденциальности *</p>

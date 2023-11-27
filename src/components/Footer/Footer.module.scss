@@ -1,11 +1,72 @@
-.Footer{
+.Footer {
   background-color: #f7f7f7;
-  min-height: 20vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 35vh;
 }
-.footerContainer{
+
+.footerContainer {
   width: 90%;
-  height: 90%;
+  height: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footerLeftBlock {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 400px;
+}
+
+.linkBlock {
+  display: flex;
+  justify-content: space-between;
+}
+
+.titleOneBlock {
+  font-weight: bold;
+}
+
+.footerOneBlock {
+  color: #333333;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.nameSite {
+  height: 30%;
+  width: 50%;
+}
+
+.nameSite>p {
+  font-size: 30px;
+}
+
+.footerRightBlock {
+  width: 20%;
+}
+
+.socialNetworks {
+  color: #333333;
+  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.socialNetworksLinks {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.socialNetworksLinks>svg {
+  color: #1f7d63;
+  height: 20px;
+}
+
+.socialNetworksLinks>svg:hover {
+  cursor: pointer;
+  color: #279b7a;
 }

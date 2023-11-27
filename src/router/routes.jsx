@@ -1,7 +1,8 @@
 import Main from "../pages/Main/Main"
+import SignIn from "../pages/SignIn/SignIn"
 
 export const publicRoutes = [
-  //{ path: '/signin', component: Autorization },
+  { path: '/signin', component: SignIn },
   //{ path: '/signup', component: Registration },
   { path: '/main', component: Main },
 ]
