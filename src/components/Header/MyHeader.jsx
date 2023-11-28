@@ -29,7 +29,7 @@ const MyHeader = () => {
       <div className={classes.bottomHeader}>
         <div className={classes.bottomHeaderContainer}>
           <div className={classes.nameSite}>
-            <p>ScaleShop</p>
+            <p onClick={() => navigate('/main')}>ScaleShop</p>
           </div>
           <div className={classes.containerHeaderButton}>
             <button className={classes.headerButton}>
@@ -38,12 +38,12 @@ const MyHeader = () => {
           </div>
 
           <div className={classes.containerSearchInput}>
-            <input type="text" className={classes.searchInput} placeholder='Поиск'/>
+            <input type="text" className={classes.searchInput} placeholder='Поиск' />
             <button className={classes.searchButton}><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
           </div>
 
           <div className={classes.containerIcon}>
-            <FontAwesomeIcon icon={faUser} onClick={()=>navigate('/signIn')}/>
+            <FontAwesomeIcon icon={faUser} onClick={() => navigate('/signIn')} />
             <div className={classes.cartShopping}>
               <FontAwesomeIcon icon={faCartShopping} />
               <p className={classes.priceBasket}>0 Br</p>
