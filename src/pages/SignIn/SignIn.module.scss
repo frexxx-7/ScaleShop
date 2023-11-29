@@ -47,6 +47,10 @@
   width: 100px;
   height: 40px;
 }
+.signInButton:hover{
+  cursor: pointer;
+  background-color:#279b7a;
+}
 .inputContainer{
   width: 100%;
   display: flex;
