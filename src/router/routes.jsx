@@ -1,4 +1,5 @@
 import Main from "../pages/Main/Main"
+import Profile from "../pages/Profile/Profile"
 import SignIn from "../pages/SignIn/SignIn"
 import SignUp from "../pages/SignUp/SignUp"
 
@@ -9,6 +10,7 @@ export const publicRoutes = [
 ]
 export const privateRoutes = [
   { path: '/main', component: Main },
+  { path: '/profile', component: Profile },
 ]
 export const adminRoutes = [
 ]

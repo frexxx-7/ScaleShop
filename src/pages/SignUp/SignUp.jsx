@@ -54,11 +54,11 @@ const SignUp = () => {
           </div>
           <div className={classes.inputContainer}>
             <label htmlFor='password'>Пароль <span className={classes.star}>*</span></label>
-            <input type="text" name='password' ref={passwordRef} className={classes.signUpInput} />
+            <input type="password" name='password' ref={passwordRef} className={classes.signUpInput} />
           </div>
           <div className={classes.inputContainer}>
             <label htmlFor='repeatPassword'>Повторите пароль <span className={classes.star}>*</span></label>
-            <input type="text" name='repeatPassword' ref={repeatPasswordRef} className={classes.signUpInput} />
+            <input type="password" name='repeatPassword' ref={repeatPasswordRef} className={classes.signUpInput} />
           </div>
         </div>
         {errors &&

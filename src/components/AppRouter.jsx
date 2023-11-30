@@ -2,21 +2,23 @@ import React, { useEffect } from 'react'
 import { useStateContext } from '../context/ContextProvider';
 import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { adminRoutes, privateRoutes, publicRoutes } from '../router/routes';
+import axiosCLient from '../axios.client';
 
 const AppRouter = () => {
   const { token, setUser, adminInfo, setAdminInfo, user } = useStateContext();
   const navigate = useNavigate()
 
-  //useEffect(() => {
-  //  axiosCLient.get('/user')
-  //    .then(({ data }) => {
-  //      setUser(data)
-  //    })
-  //  axiosCLient.get('/adminInfo')
-  //    .then(({ data }) => {
-  //      setAdminInfo(data)
-  //    })
-  //}, [])
+  useEffect(() => {
+    axiosCLient.get('/user')
+      .then(({ data }) => {
+        setUser(data)
+      })
+    axiosCLient.get('/adminInfo')
+      .then(({ data }) => {
+        setAdminInfo(data)
+      })
+  }, [])
+
 
   return (
     token ?

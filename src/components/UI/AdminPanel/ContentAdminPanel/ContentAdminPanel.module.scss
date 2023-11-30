@@ -1,0 +1,24 @@
+.buttonDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5px 0;
+    width: 10%;
+}
+
+.AdminPanel {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+.buttonP {
+    font-size: 13px;
+    text-align: center;
+}
+.buttonDiv:hover{
+    cursor:pointer;
+    background-color: rgba($color: #d3d3d3, $alpha: .5);
+    border-radius: 20px;
+}

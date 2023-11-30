@@ -43,7 +43,7 @@ const MyHeader = () => {
           </div>
 
           <div className={classes.containerIcon}>
-            <FontAwesomeIcon icon={faUser} onClick={() => navigate('/signIn')} />
+            <FontAwesomeIcon icon={faUser} onClick={() => navigate('/profile')} />
             <div className={classes.cartShopping}>
               <FontAwesomeIcon icon={faCartShopping} />
               <p className={classes.priceBasket}>0 Br</p>
