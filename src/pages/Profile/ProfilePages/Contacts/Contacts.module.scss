@@ -1,0 +1,88 @@
+.inputs {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 50vw;
+  min-height: 210px;
+}
+
+.inputContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputContainer>label {
+  padding-bottom: 8px;
+}
+.titile>h1{
+  margin: 0;
+  padding: 0 0 25px 0;
+}
+.star {
+  color: red;
+}
+
+.contactsInput {
+  height: 40px;
+  border: #333333 solid 1px;
+  border-radius: 5px;
+  padding-left: 5px;
+  box-sizing: border-box;
+}
+
+.contactsInput:focus {
+  outline: none;
+  border: #808080 3px solid;
+}
+
+.resetPasswordContainer {
+  height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.checkBoxContainer {
+  display: flex;
+  width: 160px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input[type=checkbox] {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -o-appearance: none;
+  outline: none;
+  content: none;
+}
+
+input[type=checkbox]:before {
+  font-family: "FontAwesome";
+  content: "\f00c";
+  font-size: 15px;
+  color: transparent !important;
+  display: block;
+  width: 15px;
+  height: 15px;
+  border: 2px solid #1f7d63;
+  border-radius: 2px;
+  margin-right: 7px;
+}
+
+input[type=checkbox]:checked:before {
+  color: #fff !important;
+  background: #1f7d63;
+}
+
+.contactsCheckBox:hover {
+  cursor: pointer;
+}
+.saveButtonContainer{
+  display: flex;
+  align-items: center;
+  width: 170px;
+}
+.saveButton{
+}

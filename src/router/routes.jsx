@@ -11,6 +11,8 @@ export const publicRoutes = [
 export const privateRoutes = [
   { path: '/main', component: Main },
   { path: '/profile', component: Profile },
+  { path: '/profile/orders', component: Profile},
+  { path: '/profile/contacts', component: Profile},
 ]
 export const adminRoutes = [
 ]

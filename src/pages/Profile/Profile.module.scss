@@ -1,0 +1,27 @@
+.Profile{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profileContainer{
+  width: 90%;
+  height: 90%;
+  display: flex;
+}
+.profileLink{
+  text-decoration: underline;
+  color: #1f7d63;
+  margin: 8px 0;
+}
+.profileLink:hover{
+  cursor: pointer;
+  text-decoration: none;
+}
+.profileAside{
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+.oneLinkContainer{
+  display: flex;
+}
