@@ -3,8 +3,11 @@ import classes from './Profile.module.scss'
 import { useLocation, useNavigate } from 'react-router-dom'
 import HistoryOrders from './ProfilePages/HistoryOrders/HistoryOrders'
 import Contacts from './ProfilePages/Contacts/Contacts'
+import axiosCLient from '../../axios.client'
+import { useStateContext } from '../../context/ContextProvider'
 
 const Profile = () => {
+  const { user, token, setUser, setToken } = useStateContext()
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -18,6 +21,15 @@ const Profile = () => {
         return ""
     }
   }
+  const onLogout = (ev) => {
+    ev.preventDefault()
+
+    axiosCLient.post('/logout')
+      .then(() => {
+        setUser({})
+        setToken(null)
+      })
+  }
 
   return (
     <div className={classes.Profile}>
@@ -30,7 +42,7 @@ const Profile = () => {
             <p className={classes.profileLink} onClick={() => navigate('/profile/contacts')}>Контактные данные</p>
           </div>
           <div className={classes.oneLinkContainer}>
-            <p className={classes.profileLink}>Выход</p>
+            <p className={classes.profileLink} onClick={onLogout}>Выход</p>
           </div>
         </div>
 

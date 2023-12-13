@@ -4,10 +4,11 @@ import classes from './MyHeader.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faCartShopping, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
+import { useStateContext } from '../../context/ContextProvider'
 
 const MyHeader = () => {
+  const { user } = useStateContext()
   const navigate = useNavigate()
-
 
   return (
     <div className={classes.Header}>
@@ -43,7 +44,7 @@ const MyHeader = () => {
           </div>
 
           <div className={classes.containerIcon}>
-            <FontAwesomeIcon icon={faUser} onClick={() => navigate('/profile')} />
+            <FontAwesomeIcon icon={faUser} onClick={() => Object.keys(user).length != 0 ? navigate('/profile') : navigate('/signin')} />
             <div className={classes.cartShopping}>
               <FontAwesomeIcon icon={faCartShopping} />
               <p className={classes.priceBasket}>0 Br</p>

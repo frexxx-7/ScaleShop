@@ -3,7 +3,7 @@
   justify-content: space-between;
   flex-direction: column;
   width: 50vw;
-  min-height: 210px;
+  min-height: 200px;
 }
 
 .inputContainer {
@@ -85,4 +85,16 @@ input[type=checkbox]:checked:before {
   width: 170px;
 }
 .saveButton{
+  background: #1f7d63; 
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  color: #fff;
+  width: 250px;
+  height: 40px;
+  margin: 10px 0px;
+}
+.saveButton:hover{
+  cursor:pointer;
+  background-color: #279b7a;
 }

@@ -48,6 +48,12 @@ const SignIn = () => {
             <input type="password" ref={passwordRef} name='password' className={classes.signInInput} />
           </div>
         </div>
+        {errors &&
+          <div>
+            {Object.keys(errors).map(key => (
+              <p className={classes.error} style={{color:"red",fontWeight:"bold"}} key={key}>{errors[key][0]}</p>
+            ))}</div>
+        }
         <div className={classes.signInButtonContainer}>
           <button className={classes.signInButton} onClick={signInCLick}>Войти</button>
           <p onClick={() => navigate('/signUp')}>Зарегистрироваться</p>
