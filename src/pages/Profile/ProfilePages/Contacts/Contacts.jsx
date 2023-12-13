@@ -5,7 +5,7 @@ import { useStateContext } from '../../../../context/ContextProvider'
 import axiosCLient from '../../../../axios.client'
 
 const Contacts = () => {
-  const { user, setUser, token } = useStateContext()
+  const { user, setUser } = useStateContext()
 
   const [resetPasswordChecked, setResetPasswordChecked] = useState(false)
   const [errors, setErrors] = useState({})
@@ -26,25 +26,46 @@ const Contacts = () => {
     }
   }, [user])
 
+  const editProfile = () => {
+    const payload = {
+      name: nameRef.current.value,
+      email: emailRef.current.value,
+    }
+    axiosCLient.post(`/editProfile/${user.id}`, payload)
+      .then(({ data }) => {
+        if (data) {
+          setErrors({ ...errors, meessage: ["Data edited"] })
+        }
+      })
+      .catch(err => {
+        const response = err.response
+        if (response && response.status === 422) {
+          setErrors({ ...errors, errors: response.data.errors })
+        }
+      })
+  }
+
   const saveInfo = () => {
     if (resetPasswordCheckBoxRef.current.checked) {
       const payload = {
-        token: token,
         old_password: oldPasswordRef.current.value,
         new_password: newPasswordRef.current.value,
         new_password_confirmation: repeatNewPasswordRef.current.value
       }
       axiosCLient.post('/updatePassword', payload)
-      .then(({ data }) => {
-        console.log(data);
-      })
-      .catch(err => {
-        const response = err.response
-        if (response && response.status === 422) {
-          setErrors(response.data.errors)
-        }
-      })
-    }
+        .then(({ data }) => {
+          setErrors({ meessage: [data.message] })
+        })
+        .catch(err => {
+          const response = err.response
+          if (response && response.status === 422) {
+            setErrors(response.data.errors)
+          }
+        })
+      if (user.name != nameRef.current.value && user.email != emailRef.current.value)
+        editProfile()
+    } else
+      editProfile()
   }
 
   return (

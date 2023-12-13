@@ -1,7 +1,8 @@
 .Profile{
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
+  min-height: 44vh;
 }
 .profileContainer{
   width: 90%;

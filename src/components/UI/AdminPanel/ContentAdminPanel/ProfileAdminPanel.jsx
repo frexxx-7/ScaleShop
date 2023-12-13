@@ -17,7 +17,7 @@ const ProfileAdminPanel = () => {
         <p className={classes.buttonP}>Главная</p>
       </div>
 
-      <div className={classes.buttonDiv} onClick={() => navigate(`/editProfile/${user.id}`)}>
+      <div className={classes.buttonDiv} onClick={() => navigate(`/profile/contacts`)}>
         <div className={classes.iconDiv}>
           <FontAwesomeIcon icon={faPen} />
         </div>

@@ -1,3 +1,4 @@
+import Catalog from "../pages/Catalog/Catalog"
 import Main from "../pages/Main/Main"
 import Profile from "../pages/Profile/Profile"
 import SignIn from "../pages/SignIn/SignIn"
@@ -13,6 +14,7 @@ export const privateRoutes = [
   { path: '/profile', component: Profile },
   { path: '/profile/orders', component: Profile},
   { path: '/profile/contacts', component: Profile},
+  { path: '/catalog', component: Catalog},
 ]
 export const adminRoutes = [
 ]
