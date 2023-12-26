@@ -40,7 +40,7 @@ const MyHeader = () => {
               <FontAwesomeIcon icon={faBars} />
               Каталог</button>
           </div>
-          <ModalWindow visible={visibleModal} setVisible={setVisibleModal} children={Catalog} />
+          <ModalWindow visible={visibleModal} setVisible={setVisibleModal} children={<Catalog/>} />
           <div className={classes.containerSearchInput}>
             <input type="text" className={classes.searchInput} placeholder='Поиск' />
             <button className={classes.searchButton}><FontAwesomeIcon icon={faMagnifyingGlass} /></button>

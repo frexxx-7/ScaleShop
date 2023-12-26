@@ -1,3 +1,4 @@
+import AddCategoryScale from "../pages/AdminPages/AddCategoryScale/AddCategoryScale"
 import AddScale from "../pages/AdminPages/AddScale/AddScale"
 import Catalog from "../pages/Catalog/Catalog"
 import Main from "../pages/Main/Main"
@@ -19,4 +20,5 @@ export const privateRoutes = [
 ]
 export const adminRoutes = [
   { path: '/addScale', component: AddScale},
+  { path: '/addCategoryScale', component: AddCategoryScale},
 ]

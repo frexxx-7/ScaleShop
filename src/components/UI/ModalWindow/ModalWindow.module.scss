@@ -7,6 +7,7 @@
   background: rgba($color: #d3d3d3, $alpha: .5);
   display: none;
   transition: background 400ms linear;
+  z-index: 2;
 }
 
 .myModalContent {

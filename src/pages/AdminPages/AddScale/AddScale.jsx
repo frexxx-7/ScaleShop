@@ -12,11 +12,13 @@ const AddScale = () => {
   const [selectedImage, setSelectedImage] = useState()
   const [visibleModal, setVisibleModal] = useState(false)
   const [errors, setErrors] = useState([])
-  const [infoScale, setInfoScale] = useState()
+  const [infoCategoryScale, setInfoCategoryScale] = useState([])
 
   const titleRef = useRef()
   const contentRef = useRef()
-  const isPublishedRef = useRef()
+  const priceRef = useRef()
+  const countRef = useRef()
+  const categoryRef = useRef()
 
   const navigate = useNavigate()
   const location = useLocation()
@@ -36,9 +38,12 @@ const AddScale = () => {
         })
     }
   }
+
   useEffect(() => {
+    loadInfoCategoryFromDB()
     loadInfoScale();
   }, [])
+
 
   const chooseImage = async (files) => {
     const selectImg = document.getElementById("selectImg");
@@ -61,12 +66,25 @@ const AddScale = () => {
       fileElem.click();
     }
   }
+  const loadInfoCategoryFromDB = () => {
+    axiosCLient.get(`/categoryScaleInfo`)
+    .then(({ data }) => {
+      if (data) {
+        setInfoCategoryScale(data.categorys_scale)
+      }
+    })
+    .catch(({ response }) => {
+      console.log(response);
+    })
+  }
   const editScaleToDatabase = () => {
     const payload = {
       title: titleRef.current.value,
       content: contentRef.current.value,
       image: selectedImage,
-      is_published: isPublishedRef.current.checked,
+      price: priceRef.current.value,
+      count: countRef.current.value,
+      idCategoryScale: categoryRef.current.value
     }
     axiosCLient.post(`/editScale/ ${idScale}`, payload)
       .then(({ data }) => {
@@ -87,7 +105,9 @@ const AddScale = () => {
       title: titleRef.current.value,
       content: contentRef.current.value,
       image: selectedImage,
-      is_published: isPublishedRef.current.checked,
+      price: priceRef.current.value,
+      count: countRef.current.value,
+      idCategoryScale: categoryRef.current.value
     }
     axiosCLient.post('/addScale', payload)
       .then(({ data }) => {
@@ -97,6 +117,7 @@ const AddScale = () => {
         }
       })
       .catch(err => {
+        console.log(err.response);
         const response = err.response
         if (response && response.status === 422) {
           setErrors(response.data.errors)
@@ -105,28 +126,30 @@ const AddScale = () => {
   }
 
   return (
-    <div className={classes.addNews}>
-      <div className={classes.addNewsWindow}>
-        <div className={classes.addNewsContent}>
+    <div className={classes.addScale}>
+      <div className={classes.addScaleWindow}>
+        <div className={classes.addScaleContent}>
 
           <div className={classes.header}>
             <h1>
               {
-                location.pathname.split('/')[1] == "addNews"
+                location.pathname.split('/')[1] == "addScale"
                   ?
-                  "Добавить новость"
+                  "Добавить весы"
                   :
-                  "Редактировать новость"
+                  "Редактировать весы"
               }
             </h1>
           </div>
 
           <div className={classes.inputs}>
             <input ref={titleRef} type="text" className={classes.dataInput} name="Title" placeholder='Заголовок' />
+            <input ref={countRef} type="text" className={classes.dataInput} name="Count" placeholder='Количество' />
+            <input ref={priceRef} type="text" className={classes.dataInput} name="Price" placeholder='Цена' />
             <textarea ref={contentRef} type="textarea" className={classes.dataInput} name="Content" placeholder='Контент' />
           </div>
 
-          <ModalWindow visible={visibleModal} setVisible={setVisibleModal} children={Catalog} />
+          <ModalWindow visible={visibleModal} setVisible={setVisibleModal} children={<Catalog />} />
 
           <div className={classes.addPhoto}>
             <p>Добавьте фото:</p>
@@ -145,20 +168,26 @@ const AddScale = () => {
               className={classes.selectImg}
               onClick={(e) => setVisibleModal(true)} />
           </div>
-          <div className={classes.isPublishedCheckBox}>
-            <p>Публиковать</p>
-            <input type="checkBox" ref={isPublishedRef} />
+          <div className={classes.comboBoxCategoryDiv}>
+            <p>Категория весов:</p>
+            <select name="categoryScale" className={classes.comboBoxCategory} ref={categoryRef}>
+              {
+                Object.keys(infoCategoryScale).map(key=>
+                  <option value={infoCategoryScale[key].id} key={key}>{infoCategoryScale[key].name}</option>
+                )
+              }
+            </select>
           </div>
           {errors &&
             <div>
-              {Object.keys(errors).map(key => (
+              {Object.keys(errors).map(key => 
                 <p className={classes.error} key={key}>{errors[key][0]}</p>
-              ))}</div>
+              )}</div>
           }
         </div>
         <div className={classes.addButtonDIv}>
           {
-            location.pathname.split('/')[1] == "addNews"
+            location.pathname.split('/')[1] == "addScale"
               ?
               <button onClick={addScaleToDatabase}>Добавить</button>
               :
