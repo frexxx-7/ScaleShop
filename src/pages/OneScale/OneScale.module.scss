@@ -1,0 +1,74 @@
+.OneScaleMain {
+  display: flex;
+  justify-content: center;
+  min-height: 74vh;
+}
+
+.OneScaleContainer {
+  width: 90%;
+  display: flex;
+}
+
+.imageDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+}
+
+.scaleImage {
+  max-height: 100%;
+}
+
+.titleScale,
+.category {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.priceDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e5e3e3;
+  width: 100%;
+  padding: 10px;
+  border-radius: 15px;
+  margin-top: 50px;
+}
+
+.infoScale {
+  width: 100%;
+}
+
+.price {
+  font-weight: bold;
+}
+
+.scaleButton:hover {
+  background-color: #279b7a;
+  cursor: pointer;
+}
+
+.scaleTitile:hover {
+  cursor: pointer;
+  color: #279b7a
+}
+
+.scaleButton>p {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.scaleButton {
+  width: 160px;
+  background-color: #1f7d63;
+  border: none;
+  height: 40px;
+  border-radius: 5px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import classes from './Main.module.scss'
 import { Carousel } from 'react-carousel-minimal';
 import Scales from '../../components/Scales/Scales';
@@ -7,9 +7,11 @@ import { faClipboard, faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import { faTruck } from '@fortawesome/free-solid-svg-icons';
 import Reviews from '../../components/Reviews/Reviews';
 import { useNavigate } from 'react-router-dom';
+import axiosCLient from '../../axios.client';
 
 const Main = () => {
-  
+  const [dataLastScale, setDataLastScale] = useState()
+
   const data = [
     {
       image: "./slider-1.jpeg",
@@ -29,6 +31,22 @@ const Main = () => {
     fontSize: '20px',
     fontWeight: 'bold',
   }
+
+  const loadLast = () => {
+    axiosCLient.get(`/loadLastScale`)
+      .then(({ data }) => {
+        if (data) {
+          setDataLastScale(data.scale);
+        }
+      })
+      .catch(({ response }) => {
+        console.log(response);
+      })
+  }
+  useEffect(() => {
+    loadLast()
+  }, [])
+
   return (
     <div className={classes.main}>
       <div className={classes.mainContent}>
@@ -65,11 +83,12 @@ const Main = () => {
             <p className={classes.headNewScalesP}>Новое поступление</p>
           </div>
           <div className={classes.contentNewScales}>
-            <Scales />
-            <Scales />
-            <Scales />
-            <Scales />
-            <Scales />
+            {
+              dataLastScale &&
+              Object.keys(dataLastScale).map(key =>
+                <Scales dataScale = {dataLastScale[key]} key = {key} />
+              )
+            }
           </div>
         </div>
 

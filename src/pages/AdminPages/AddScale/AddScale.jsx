@@ -13,6 +13,7 @@ const AddScale = () => {
   const [visibleModal, setVisibleModal] = useState(false)
   const [errors, setErrors] = useState([])
   const [infoCategoryScale, setInfoCategoryScale] = useState([])
+  const [infoScale, setInfoScale] = useState()
 
   const titleRef = useRef()
   const contentRef = useRef()
@@ -25,12 +26,14 @@ const AddScale = () => {
 
   const idScale = location.pathname.split('/')[location.pathname.split('/').length - 1];
 
+
+
   const loadInfoScale = () => {
     if (location.pathname.split('/')[1] == "editScale") {
       axiosCLient.get(`/scale/${location.pathname.split('/')[2]}`)
         .then(({ data }) => {
           if (data) {
-            console.log(data);
+            setInfoScale(data.scale);
           }
         })
         .catch(({ response }) => {
@@ -44,6 +47,17 @@ const AddScale = () => {
     loadInfoScale();
   }, [])
 
+  useEffect(() => {
+    console.log(infoScale);
+    if (infoScale) {
+      titleRef.current.value = infoScale.title
+      countRef.current.value = infoScale.count
+      priceRef.current.value = infoScale.price
+      contentRef.current.value = infoScale.content
+      setSelectedImage(infoScale.image)
+      categoryRef.current.value = infoScale.idCategoryScale
+    }
+  }, [infoScale])
 
   const chooseImage = async (files) => {
     const selectImg = document.getElementById("selectImg");
@@ -68,14 +82,14 @@ const AddScale = () => {
   }
   const loadInfoCategoryFromDB = () => {
     axiosCLient.get(`/categoryScaleInfo`)
-    .then(({ data }) => {
-      if (data) {
-        setInfoCategoryScale(data.categorys_scale)
-      }
-    })
-    .catch(({ response }) => {
-      console.log(response);
-    })
+      .then(({ data }) => {
+        if (data) {
+          setInfoCategoryScale(data.categorys_scale)
+        }
+      })
+      .catch(({ response }) => {
+        console.log(response);
+      })
   }
   const editScaleToDatabase = () => {
     const payload = {
@@ -89,8 +103,8 @@ const AddScale = () => {
     axiosCLient.post(`/editScale/ ${idScale}`, payload)
       .then(({ data }) => {
         if (data) {
-          if(data.scale == 1)
-           navigate(`/scale/${idScale}`)
+          if (data.scale == 1)
+            navigate(`/scale/${idScale}`)
         }
       })
       .catch(err => {
@@ -172,7 +186,7 @@ const AddScale = () => {
             <p>Категория весов:</p>
             <select name="categoryScale" className={classes.comboBoxCategory} ref={categoryRef}>
               {
-                Object.keys(infoCategoryScale).map(key=>
+                Object.keys(infoCategoryScale).map(key =>
                   <option value={infoCategoryScale[key].id} key={key}>{infoCategoryScale[key].name}</option>
                 )
               }
@@ -180,7 +194,7 @@ const AddScale = () => {
           </div>
           {errors &&
             <div>
-              {Object.keys(errors).map(key => 
+              {Object.keys(errors).map(key =>
                 <p className={classes.error} key={key}>{errors[key][0]}</p>
               )}</div>
           }

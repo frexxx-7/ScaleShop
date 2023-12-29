@@ -6,6 +6,7 @@ import ForAllAdminPanel from './ContentAdminPanel/ForAllAdminPanel';
 import ProfileAdminPanel from './ContentAdminPanel/ProfileAdminPanel';
 import AddScaleAdminPanel from './ContentAdminPanel/AddScaleAdminPanel';
 import AddCategoryAdminPanel from './ContentAdminPanel/AddCategoryAdminPanel';
+import OneScaleAdminPanel from './ContentAdminPanel/OneScaleAdminPanel';
 
 const AdminPanel = () => {
   const location = useLocation()
@@ -20,6 +21,8 @@ const AdminPanel = () => {
         return <AddScaleAdminPanel />
       case "/addCategoryScale":
         return <AddCategoryAdminPanel />
+      case "/" + (pathname.match(/scale\/.*/) && pathname.match(/scale\/.*/)[0]):
+        return <OneScaleAdminPanel idScale={pathname.match(/scale\/.*/) && pathname.split('/')[pathname.split('/').length - 1]}/>
       default:
         return <ForAllAdminPanel />
     }
