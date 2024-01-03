@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import classes from './MyHeader.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,6 +12,7 @@ const MyHeader = () => {
   const { user } = useStateContext()
   const navigate = useNavigate()
   const [visibleModal, setVisibleModal] = useState(false)
+  const searchRef = useRef()
 
   return (
     <div className={classes.Header}>
@@ -42,8 +43,8 @@ const MyHeader = () => {
           </div>
           <ModalWindow visible={visibleModal} setVisible={setVisibleModal} children={<Catalog/>} />
           <div className={classes.containerSearchInput}>
-            <input type="text" className={classes.searchInput} placeholder='Поиск' />
-            <button className={classes.searchButton}><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
+            <input type="text" className={classes.searchInput} placeholder='Поиск' ref={searchRef} />
+            <button className={classes.searchButton} onClick={()=>navigate(`/search/${searchRef.current.value}`)}><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
           </div>
 
           <div className={classes.containerIcon}>

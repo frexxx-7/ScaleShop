@@ -16,7 +16,6 @@ const Catalog = () => {
         }
       })
       .catch(({ response }) => {
-        console.log(response);
       })
   }
 

@@ -5,6 +5,7 @@ import Catalog from "../pages/Catalog/Catalog"
 import Category from "../pages/Category/Category"
 import Main from "../pages/Main/Main"
 import Profile from "../pages/Profile/Profile"
+import Search from "../pages/Search/Search"
 import SignIn from "../pages/SignIn/SignIn"
 import SignUp from "../pages/SignUp/SignUp"
 
@@ -21,7 +22,8 @@ export const privateRoutes = [
   { path: '/profile/contacts', component: Profile},
   { path: '/catalog', component: Catalog},
   { path: '/scale/:id', component: LoadScale },
-  { path: '/categoryScale/:id', component: Category}
+  { path: '/categoryScale/:id', component: Category},
+  { path: '/search/:id', component: Search},
 ]
 export const adminRoutes = [
   { path: '/addScale', component: AddScale},
