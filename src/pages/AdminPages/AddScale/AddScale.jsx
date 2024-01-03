@@ -48,7 +48,6 @@ const AddScale = () => {
   }, [])
 
   useEffect(() => {
-    console.log(infoScale);
     if (infoScale) {
       titleRef.current.value = infoScale.title
       countRef.current.value = infoScale.count

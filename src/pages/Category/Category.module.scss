@@ -1,9 +1,10 @@
-.catalog{
+.Category{
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 44vh;
 }
-.catalogContainer{
+.categoryContainer{
   width: 90%;
   height: 90%;
   display: flex;

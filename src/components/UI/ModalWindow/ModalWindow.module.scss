@@ -13,16 +13,25 @@
 .myModalContent {
   padding: 25px;
   background: #fff;
-  min-width: 80vw;
-  min-height: 70vh;
+  max-width: 80vw;
+  max-height: 70vh;
   border: 2px solid #000;
   box-shadow: 0 0 20px #000;
   transition: border 400ms linear,
     box-shadow 350ms linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
 }
 
 .myModal.active {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.myModalScale{
+  padding: 10px;
+  max-width: 79vw;
+  max-height: 69vh;
 }

@@ -1,0 +1,25 @@
+.categoryScale{
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  min-height: 300px;
+}
+.image{
+  width: 100%;
+}
+.image>img{
+  max-width: 100%;
+}
+.titleCategoryScale{
+  font-weight: bold;
+  font-size: 25px;
+  color: #1f7d63;
+}
+.categoryScale:hover{
+  cursor: pointer;
+}
+.categoryScale:hover .titleCategoryScale{
+  color: #279b7a;
+}
