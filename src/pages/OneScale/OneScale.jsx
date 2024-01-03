@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 const OneScale = ({ scaleInfo }) => {
-  console.log(scaleInfo);
   return (
     <div className={classes.OneScaleMain}>
       <div className={classes.OneScaleContainer}>

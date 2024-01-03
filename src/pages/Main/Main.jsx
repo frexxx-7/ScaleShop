@@ -11,6 +11,7 @@ import axiosCLient from '../../axios.client';
 
 const Main = () => {
   const [dataLastScale, setDataLastScale] = useState()
+  const [infoCategoryAndScale, setInfoCategoryAndScale] = useState()
 
   const data = [
     {
@@ -43,8 +44,20 @@ const Main = () => {
         console.log(response);
       })
   }
+  const loadInfoCategoryFromDB = () => {
+    axiosCLient.get(`/categoryAndScale`)
+      .then(({ data }) => {
+        if (data) {
+          setInfoCategoryAndScale(data.categories)
+        }
+      })
+      .catch(({ response }) => {
+        console.log(response);
+      })
+  }
   useEffect(() => {
     loadLast()
+    loadInfoCategoryFromDB()
   }, [])
 
   return (
@@ -86,7 +99,7 @@ const Main = () => {
             {
               dataLastScale &&
               Object.keys(dataLastScale).map(key =>
-                <Scales dataScale = {dataLastScale[key]} key = {key} />
+                <Scales dataScale={dataLastScale[key]} key={key} />
               )
             }
           </div>
@@ -102,26 +115,28 @@ const Main = () => {
 
         <div className={classes.newScales}>
           <div className={classes.headNewScales}>
-            <p className={classes.headNewScalesP}>Настольные весы</p>
+            <p className={classes.headNewScalesP}>{infoCategoryAndScale && infoCategoryAndScale[0].name}</p>
           </div>
           <div className={classes.contentNewScales}>
-            <Scales />
-            <Scales />
-            <Scales />
-            <Scales />
-            <Scales />
+            {
+              infoCategoryAndScale &&
+              Object.keys(infoCategoryAndScale[0].scales).map(key =>
+                <Scales dataScale={infoCategoryAndScale[0].scales[key]} key={key} />
+              )
+            }
           </div>
         </div>
         <div className={classes.newScales}>
           <div className={classes.headNewScales}>
-            <p className={classes.headNewScalesP}>Напольные весы</p>
+            <p className={classes.headNewScalesP}>{infoCategoryAndScale && infoCategoryAndScale[1].name}</p>
           </div>
           <div className={classes.contentNewScales}>
-            <Scales />
-            <Scales />
-            <Scales />
-            <Scales />
-            <Scales />
+            {
+              infoCategoryAndScale &&
+              Object.keys(infoCategoryAndScale[1].scales).map(key =>
+                <Scales dataScale={infoCategoryAndScale[1].scales[key]} key={key} />
+              )
+            }
           </div>
         </div>
 
