@@ -54,6 +54,21 @@
 
 .scaleButtonContainer {
   width: 100%;
+  display: flex;
+}
+
+.minusButton {
+  background-color: #1f7d63;
+  color: #fff;
+  border:none;
+  width: 40px;
+  border-radius: 10px 0  0 10px;
+  margin-right: 2px;
+}
+
+.minusButton:hover {
+  background-color: #279b7a;
+  cursor: pointer;
 }
 
 .scaleButton {
@@ -77,7 +92,28 @@
   background-color: #279b7a;
   cursor: pointer;
 }
-.scaleTitile:hover{
+.plusButton {
+  background-color: #1f7d63;
+  color: #fff;
+  border:none;
+  width: 40px;
+  border-radius: 0 10px 10px 0;
+  margin-left: 2px;
+}
+
+.plusButton:hover {
+  background-color: #279b7a;
   cursor: pointer;
-  color:#279b7a
+}
+
+.scaleTitile:hover {
+  cursor: pointer;
+  color: #279b7a
+}
+.activeBasketButton{
+  display: flex;
+  flex-direction: column;
+}
+.activeBasketButton>p{
+  margin: 0;
 }

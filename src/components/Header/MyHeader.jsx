@@ -50,7 +50,7 @@ const MyHeader = () => {
           <div className={classes.containerIcon}>
             <FontAwesomeIcon icon={faUser} onClick={() => Object.keys(user).length != 0 ? navigate('/profile') : navigate('/signin')} />
             <div className={classes.cartShopping}>
-              <FontAwesomeIcon icon={faCartShopping} />
+              <FontAwesomeIcon icon={faCartShopping} onClick={()=>navigate('/basket')}/>
               <p className={classes.priceBasket}>0 Br</p>
             </div>
           </div>

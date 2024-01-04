@@ -1,0 +1,15 @@
+.Basket{
+  display: flex;
+  justify-content: center;
+  min-height: 44vh;
+}
+.basketContainer{
+  width: 90%;
+  height: 90%;
+}
+.title>p{
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  margin-bottom: 16px;
+}

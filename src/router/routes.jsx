@@ -1,6 +1,7 @@
 import LoadScale from "../components/Scales/LoadScale"
 import AddCategoryScale from "../pages/AdminPages/AddCategoryScale/AddCategoryScale"
 import AddScale from "../pages/AdminPages/AddScale/AddScale"
+import Basket from "../pages/Basket/Basket"
 import Catalog from "../pages/Catalog/Catalog"
 import Category from "../pages/Category/Category"
 import Main from "../pages/Main/Main"
@@ -24,6 +25,7 @@ export const privateRoutes = [
   { path: '/scale/:id', component: LoadScale },
   { path: '/categoryScale/:id', component: Category},
   { path: '/search/:id', component: Search},
+  { path: '/basket', component: Basket},
 ]
 export const adminRoutes = [
   { path: '/addScale', component: AddScale},
