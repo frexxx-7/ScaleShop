@@ -1,0 +1,95 @@
+.ScaleBasket{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.scaleBasketContainer{
+  width: 95%;
+  height: 90%;
+  display: flex;
+}
+.ScaleImage{
+  width: 150px;
+  margin-right: 20px;
+}
+.ScaleImage>img{
+  max-width: 100%;
+}
+.scaleInfo{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 70%;
+}
+.scaleTitle{
+  display: flex;
+}
+.scaleTitle>p{
+  font-weight: 700;
+  font-size: 20px;
+  margin: 10px 0;
+  display: flex;
+}
+.scaleTitle>p:hover{
+  cursor: pointer;
+}
+.scalePrice>p{
+  color:#1f7d63;
+  margin: 10px 0;
+}
+.buttonPlusMinus{
+  display: flex;
+  height: 30px;
+  align-items: center;
+  box-sizing: border-box;
+}
+.buttonPlusMinus>p{
+  width: 90px;
+  background-color: #1f7d63;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color:#fff;
+  font-weight: 700;
+}
+.buttonMinus, .buttonPlus{
+  border:none;
+  background-color: #1f7d63;
+  height: 100%;
+  color:#fff;
+}
+.buttonMinus:hover, .buttonPlus:hover{
+  cursor: pointer;
+  background-color: #279b7a;
+}
+.buttonMinus{
+  border-radius: 5px 0 0 5px;
+}
+.buttonPlus{
+  border-radius: 0 5px 5px 0;
+}
+.deleteScaleContainer{
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  flex-direction: column;
+}
+.deleteScale{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+.deleteScale>svg{
+  color:#aeaeae;
+  height: 20px;
+}
+.deleteScale>svg:hover{
+  color:#279b7a;
+  cursor: pointer;
+}
+.sumPriceScaleInPrice{
+  display: flex;
+  justify-content: end;
+  font-size: 20px;
+}

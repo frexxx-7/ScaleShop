@@ -22,25 +22,26 @@ const Scales = ({ dataScale }) => {
     axiosCLient.post(`/infoScaleScaleInBasket`, payload)
       .then(({ data }) => {
         if (data) {
-          setBasketScaleInfo(data ? data.basket[0] : {})
+          setBasketScaleInfo(data.basket[0])
+          setCount(data.basket[0].count)
         }
       })
       .catch(({ response }) => {
         console.log(response);
       })
   }
-  const addedEditScaleToDB = () => {
+  const addedEditScaleToDB = (count) => {
     const payload = {
       idUser: user.id,
       idScale: dataScale.id,
       count: count,
       purchased: false
     }
-    Object.keys(basketScaleInfo || {}).length == 0 ?
+    if (!basketScaleInfo || Object.keys(basketScaleInfo).length == 0)
       axiosCLient.post('/addScaleToBasket', payload)
         .then(({ data }) => {
           if (data) {
-            setBasketScaleInfo(data ? data.basket[0] : {})
+            loadInfoScaleInBasket()
           }
         })
         .catch(err => {
@@ -50,12 +51,11 @@ const Scales = ({ dataScale }) => {
             setErrors(response.data.errors)
           }
         })
-      :
+    else
       axiosCLient.post(`/editScaleToBasket/${basketScaleInfo.id}`, payload)
         .then(({ data }) => {
           if (data) {
-            console.log(data);
-            setBasketScaleInfo(data.basket[0])
+            loadInfoScaleInBasket()
           }
         })
         .catch(err => {
@@ -66,16 +66,15 @@ const Scales = ({ dataScale }) => {
           }
         })
   }
-  console.log(basketScaleInfo);
   useEffect(() => {
     if (Object.keys(user).length != 0) {
       loadInfoScaleInBasket()
     }
   }, [user])
   useEffect(() => {
-    if (Object.keys(basketScaleInfo || {}).length != 0) {
+    if (basketScaleInfo && Object.keys(basketScaleInfo).length !== 0) {
       setCount(basketScaleInfo.count)
-      setVisiblePlusMinusButton(true)
+      count != 0 && setVisiblePlusMinusButton(true)
     }
   }, [basketScaleInfo])
   return (
@@ -93,12 +92,11 @@ const Scales = ({ dataScale }) => {
         <div className={classes.scaleButtonContainer}>
           <button className={classes.minusButton} style={{ display: visivlePulsMinusButton ? "block" : " none" }}
             onClick={() => {
-              setCount(count - 1)
               if (count <= 1) {
                 setVisiblePlusMinusButton(false)
-                setCount(1)
-                addedEditScaleToDB()
-              }
+                addedEditScaleToDB(0)
+              } else
+                addedEditScaleToDB(count - 1)
             }}>
             <FontAwesomeIcon icon={faMinus} />
           </button>
@@ -106,9 +104,8 @@ const Scales = ({ dataScale }) => {
             () => {
               if (visivlePulsMinusButton)
                 return navigate('/basket')
+              addedEditScaleToDB(count + 1)
               setVisiblePlusMinusButton(true)
-
-              addedEditScaleToDB()
             }
           }>
             {
@@ -127,8 +124,7 @@ const Scales = ({ dataScale }) => {
           </button>
           <button className={classes.plusButton} style={{ display: visivlePulsMinusButton ? "block" : " none" }}
             onClick={() => {
-              setCount(count + 1)
-              addedEditScaleToDB()
+              addedEditScaleToDB(count + 1)
             }
             }>
             <FontAwesomeIcon icon={faPlus} />
