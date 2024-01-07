@@ -22,8 +22,8 @@ const MyHeader = () => {
         <div className={classes.topHeaderContainer}>
           <ul className={classes.headerMenuUl}>
             <li onClick={() => navigate('/catalog')}>Каталог</li>
-            <li>О компании</li>
-            <li>Контакты</li>
+            <li onClick={()=> navigate('/aboutCompany')}>О компании</li>
+            <li onClick={()=>navigate('/contacts')}>Контакты</li>
             <li>Доставка</li>
             <li>Оплата</li>
             <li onClick={() => navigate('/profile')}>Профиль</li>
