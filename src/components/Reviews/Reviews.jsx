@@ -1,16 +1,17 @@
 import React from 'react'
 import classes from './Reviews.module.scss'
 
-const Reviews = () => {
+const Reviews = ({dataReviews}) => {
+  console.log(dataReviews);
   return (
     <div className={classes.reviewsContainer}>
       <div className={classes.reviewsDiv}>
         <div className={classes.titleName}>
-          <p className={classes.nameUser}>Name user</p>
+          <p className={classes.nameUser}>{dataReviews && dataReviews.userName}</p>
         </div>
 
         <div className={classes.contentReviews}>
-          <p className={classes.content}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates facere sunt repellendus, repellat exercitationem ducimus ut recusandae iste optio a voluptate tempora adipisci blanditiis tenetur nulla et porro amet nesciunt!</p>
+          <p className={classes.content}>{dataReviews && dataReviews.comment}</p>
         </div>
       </div>
     </div>

@@ -126,7 +126,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 90px;
+  width: 100px;
 }
 .cartShopping>svg{
   height: 35px;
@@ -136,6 +136,8 @@
   color:#279b7a;
 }
 .priceBasket {
-  font-size: 20px;
+  font-size: 16px;
   color: #279b7a;
+  font-weight: 700;
+  width: 58px;
 }

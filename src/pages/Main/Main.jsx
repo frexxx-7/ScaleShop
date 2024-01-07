@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import classes from './Main.module.scss'
 import { Carousel } from 'react-carousel-minimal';
 import Scales from '../../components/Scales/Scales';
@@ -8,10 +8,19 @@ import { faTruck } from '@fortawesome/free-solid-svg-icons';
 import Reviews from '../../components/Reviews/Reviews';
 import { useNavigate } from 'react-router-dom';
 import axiosCLient from '../../axios.client';
+import { useStateContext } from '../../context/ContextProvider';
 
 const Main = () => {
   const [dataLastScale, setDataLastScale] = useState()
   const [infoCategoryAndScale, setInfoCategoryAndScale] = useState()
+  const [infoReviews, setInfoReviews] = useState()
+
+  const { user } = useStateContext()
+
+  const nameRef = useRef()
+  const numberRef = useRef()
+  const mailRef = useRef()
+  const commentRef = useRef()
 
   const data = [
     {
@@ -55,10 +64,44 @@ const Main = () => {
         console.log(response);
       })
   }
+  const loadLastReviewsFromDB = () => {
+    axiosCLient.get(`/loadLastReview`)
+      .then(({ data }) => {
+        if (data) {
+          setInfoReviews(data.reviews)
+        }
+      })
+      .catch(({ response }) => {
+        console.log(response);
+      })
+  }
   useEffect(() => {
     loadLast()
     loadInfoCategoryFromDB()
+    loadLastReviewsFromDB()
   }, [])
+
+  const addReview = () => {
+    const payload = {
+      name: nameRef.current.value,
+      number: numberRef.current.value,
+      email: mailRef.current.value,
+      comment: commentRef.current.value,
+      idUser: user.id,
+    }
+    axiosCLient.post('/addReview', payload)
+      .then(({ data }) => {
+        if (data) {
+        }
+      })
+      .catch(err => {
+        console.log(err.response);
+        const response = err.response
+        if (response && response.status === 422) {
+          setErrors(response.data.errors)
+        }
+      })
+  }
 
   return (
     <div className={classes.main}>
@@ -190,9 +233,12 @@ const Main = () => {
             <p className={classes.headReviewsP}>Отзывы клиентов</p>
           </div>
           <div className={classes.contentReviews}>
-            <Reviews />
-            <Reviews />
-            <Reviews />
+            {
+              infoReviews &&
+              Object.keys(infoReviews).map(key =>
+                <Reviews dataReviews={infoReviews[key]} key={key} />
+              )
+            }
           </div>
         </div>
 
@@ -202,16 +248,16 @@ const Main = () => {
           </div>
           <div className={classes.contentFeedback}>
             <div className={classes.feedbackForm}>
-              <input type="text" className={classes.feedbackInput} placeholder='Имя*' />
-              <input type="text" className={classes.feedbackInput} placeholder='Телефон' />
-              <input type="text" className={classes.feedbackInput} placeholder='Почта*' />
-              <textarea cols="30" rows="10" className={classes.feedbackArea} placeholder='Комментарий' ></textarea>
+              <input type="text" ref={nameRef} className={classes.feedbackInput} placeholder='Имя*' />
+              <input type="text" ref={numberRef} className={classes.feedbackInput} placeholder='Телефон' />
+              <input type="text" ref={mailRef} className={classes.feedbackInput} placeholder='Почта*' />
+              <textarea cols="30" ref={commentRef} rows="10" className={classes.feedbackArea} placeholder='Комментарий' ></textarea>
               <div className={classes.feedbakcCheckBoxContainer}>
                 <input type="checkbox" />
                 <p>Настоящим подтверждаю, что я ознакомлен и согласен с условиями оферты и политики конфиденциальности *</p>
               </div>
               <div className={classes.feedbackButtonContainer}>
-                <button className={classes.feedbackButton}>Отправить</button>
+                <button className={classes.feedbackButton} onClick={() => addReview()}>Отправить</button>
               </div>
             </div>
           </div>

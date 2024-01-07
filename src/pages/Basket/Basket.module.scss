@@ -1,15 +1,62 @@
-.Basket{
+.Basket {
   display: flex;
   justify-content: center;
   min-height: 44vh;
 }
-.basketContainer{
+
+.basketContainer {
   width: 90%;
   height: 90%;
 }
-.title>p{
+
+.title>p {
   font-size: 32px;
   font-weight: 700;
   margin: 0;
   margin-bottom: 16px;
+}
+.scalesContainer{
+  width: 70%;
+}
+.basketMainContainer {
+  display: flex;
+  width: 100%;
+}
+.sumBasket{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 200px;
+}
+.sumBasketContainer{
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+}
+.resultSum{
+  font-weight: 700;
+  font-size: 20px;
+}
+.payButton{
+  width: 90%;
+  background-color: #1f7d63;
+  display: flex;
+  border:none;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  color:#fff;
+  font-weight: 700;
+  border-radius: 10px;
+  font-size: 16px;
+}
+.payButton:hover{
+  cursor: pointer;
+  background-color: #279b7a;
 }

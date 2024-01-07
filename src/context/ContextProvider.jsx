@@ -1,19 +1,16 @@
 import { createContext, useContext, useState } from "react";
 
 const StateContext = createContext({
-  showAside: false,
   currentUser: null,
   token: null,
   adminInfo: null,
   setUser: () => { },
   setToken: () => { },
-  setShowAside: () => { },
-  setAdminInfo : () => { }
+  setAdminInfo : () => { },
 })
 
 export const ContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
-  const [showAside, setShowAside] = useState()
   const [token, _setToken] = useState(localStorage.getItem('ACCESS_TOKEN'));
   const [adminInfo, setAdminInfo] = useState()
 
@@ -32,8 +29,6 @@ export const ContextProvider = ({ children }) => {
       setUser,
       token,
       setToken,
-      showAside,
-      setShowAside,
       adminInfo,
       setAdminInfo
     }}>

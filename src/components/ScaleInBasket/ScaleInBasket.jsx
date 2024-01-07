@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import axiosCLient from '../../axios.client';
 import { useNavigate } from 'react-router-dom';
 
-const ScaleInBasket = ({ ScaleInfo }) => {
+const ScaleInBasket = ({ ScaleInfo, setSumBasket, sumBasket }) => {
   const { user } = useStateContext()
   const [basketScaleInfo, setBasketScaleInfo] = useState({})
   const [count, setCount] = useState(1)
@@ -22,7 +22,6 @@ const ScaleInBasket = ({ ScaleInfo }) => {
     axiosCLient.post(`/infoScaleScaleInBasket`, payload)
       .then(({ data }) => {
         if (data) {
-          console.log(data);
           setBasketScaleInfo(data.basket[0])
           setCount(data.basket[0].count)
         }
@@ -72,31 +71,34 @@ const ScaleInBasket = ({ ScaleInfo }) => {
         </div>
         <div className={classes.scaleInfo}>
           <div className={classes.scaleTitle}>
-            <p onClick={()=> navigate(`/scale/${ScaleInfo.id}`)}>{ScaleInfo && ScaleInfo.title}</p>
+            <p onClick={() => navigate(`/scale/${ScaleInfo.id}`)}>{ScaleInfo && ScaleInfo.title}</p>
           </div>
           <div className={classes.scalePrice}>
             <p>{ScaleInfo && ScaleInfo.price} Br</p>
           </div>
           <div className={classes.buttonPlusMinus}>
             <button className={classes.buttonMinus} onClick={() => {
-              if (count <= 1) {
+              if (count <= 0) {
                 editScaleToDB(0)
-              } else
+              } else {
                 editScaleToDB(count - 1)
+                setSumBasket(sumBasket - +ScaleInfo.price)
+              }
             }}><FontAwesomeIcon icon={faMinus} /></button>
             <p className={classes.countInBasket}>{count}</p>
             <button className={classes.buttonPlus} onClick={() => {
               editScaleToDB(count + 1)
+              setSumBasket(sumBasket + +ScaleInfo.price)
             }}><FontAwesomeIcon icon={faPlus} /></button>
           </div>
         </div>
         <div className={classes.deleteScaleContainer}>
-            <div className={classes.deleteScale}>
-              <FontAwesomeIcon icon ={faX} />
-            </div>
-            <div className={classes.sumPriceScaleInPrice}>
-              <p>{ScaleInfo && + count * +ScaleInfo.price} Br</p>
-            </div>
+          <div className={classes.deleteScale}>
+            <FontAwesomeIcon icon={faX} />
+          </div>
+          <div className={classes.sumPriceScaleInPrice}>
+            <p>{ScaleInfo && + count * +ScaleInfo.price} Br</p>
+          </div>
         </div>
       </div>
     </div>

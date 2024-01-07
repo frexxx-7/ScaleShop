@@ -8,6 +8,7 @@ import ScaleInBasket from '../../components/ScaleInBasket/ScaleInBasket'
 const Basket = () => {
   const { user } = useStateContext()
   const [scalesInfo, setScalesInfo] = useState()
+  const [sumBasket, setSumBasket] = useState(0)
 
   const loadInfoBasketScales = () => {
     const payload = {
@@ -28,15 +29,30 @@ const Basket = () => {
     if (Object.keys(user).length != 0)
       loadInfoBasketScales()
   }, [user])
+
+  useEffect(() => {
+    scalesInfo &&
+      setSumBasket(Object.keys(scalesInfo).reduce((acc, key) => {
+        return acc + (scalesInfo[key].countBasket * scalesInfo[key].price);
+      }, 0))
+  }, [scalesInfo])
   return (
     <div className={classes.Basket}>
       <div className={classes.basketContainer}>
         <div className={classes.title}>
           <p>Корзина</p>
         </div>
-        <div className={classes.scalesContainer}>
-          {scalesInfo && Object.keys(scalesInfo).map(key =>
-            <ScaleInBasket ScaleInfo={scalesInfo[key]} key={key} />)}
+        <div className={classes.basketMainContainer}>
+          <div className={classes.scalesContainer}>
+            {scalesInfo && Object.keys(scalesInfo).map(key =>
+              <ScaleInBasket setSumBasket={setSumBasket} sumBasket={sumBasket} ScaleInfo={scalesInfo[key]} key={key} />)}
+          </div>
+          <div className={classes.sumBasket}>
+            <div className={classes.sumBasketContainer}>
+              <p className={classes.resultSum}>Итого к оплате: {sumBasket} Br</p>
+              <button className={classes.payButton}>Оплатить</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
