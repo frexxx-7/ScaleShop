@@ -1,0 +1,56 @@
+.Constructor{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 44vh;
+}
+.constructorContainer{
+  width: 90%;
+  height: 90%;
+}
+.title>p{
+  font-size: 32px;
+  font-weight: 700;
+}
+.comboBoxContainer{
+  display: flex;
+  width: 800px;
+  justify-content: space-between;
+}
+.comboBoxContainer>p{
+  font-size: 16px;
+  font-weight: 700;
+}
+.comboBoxContainer>select{
+  width: 60%;
+  height: 30px;
+  background-color: #1f7d63;
+  color:#fff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+.comboBoxContainer>select:hover{
+  background-color: #279b7a;
+  cursor: pointer;
+}
+.buttonContainer{
+  height: 100px;
+  display: flex;
+  align-items: center;
+  width: 90%;
+}
+
+.saveButton {
+  background-color: #1f7d63;
+  border:none;
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  color:#fff;
+  font-size: 1rem;
+}
+.saveButton:hover {
+  background-color: #279b7a;
+  cursor: pointer;
+}

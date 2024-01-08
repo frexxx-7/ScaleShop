@@ -1,0 +1,79 @@
+.mainAddConstructor{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 44vh;
+}
+.mainAddConstructorContainer{
+  width: 90%;
+  height: 90%;
+}
+.buttonDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5px 0;
+  width: 10%;
+}
+.buttonDiv:hover{
+  cursor:pointer;
+  background-color: rgba($color: #d3d3d3, $alpha: .5);
+  border-radius: 20px;
+}
+.buttonP {
+  font-size: 13px;
+  text-align: center;
+}
+.buttons{
+  display: flex;
+  justify-content: space-between;
+}
+.page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pageContainer{
+  width: 90%;
+  height: 90%;
+}
+.addButtonDIv {
+  height: 70px;
+  display: flex;
+  width: 90%;
+  align-items: center;
+}
+
+.addButtonDIv>button {
+  background-color: #1f7d63;
+  border:none;
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  color:#fff;
+  font-size: 1rem;
+}
+
+.addButtonDIv>button:hover {
+  background-color: #279b7a;
+  cursor: pointer;
+}
+.inputs {
+  display: flex;
+  height: 50%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.dataInput {
+  height: 40px;
+  border: #333333 solid 1px;
+  border-radius: 5px;
+  padding-left: 5px;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 20px;
+}

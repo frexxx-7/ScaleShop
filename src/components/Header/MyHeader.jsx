@@ -24,8 +24,7 @@ const MyHeader = () => {
             <li onClick={() => navigate('/catalog')}>Каталог</li>
             <li onClick={()=> navigate('/aboutCompany')}>О компании</li>
             <li onClick={()=>navigate('/contacts')}>Контакты</li>
-            <li>Доставка</li>
-            <li>Оплата</li>
+            <li onClick={()=>navigate('/constructor')}>Конструктор</li>
             <li onClick={() => navigate('/profile')}>Профиль</li>
           </ul>
         </div>
