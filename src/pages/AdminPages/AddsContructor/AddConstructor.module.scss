@@ -65,7 +65,6 @@
   width: 100%;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
 }
 
 .dataInput {
@@ -76,4 +75,27 @@
   box-sizing: border-box;
   width: 100%;
   margin-bottom: 20px;
+}
+.comboBoxContainer{
+  display: flex;
+  width: 800px;
+  justify-content: space-between;
+  align-items: center;
+}
+.comboBoxContainer>p{
+  font-size: 16px;
+  font-weight: 700;
+}
+.comboBoxContainer>select{
+  width: 60%;
+  height: 30px;
+  background-color: #1f7d63;
+  color:#fff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+.comboBoxContainer>select:hover{
+  background-color: #279b7a;
+  cursor: pointer;
 }
