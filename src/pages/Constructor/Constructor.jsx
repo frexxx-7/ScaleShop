@@ -99,6 +99,30 @@ const Constructor = () => {
     loadStrainGauge()
   }, [])
 
+  const saveConstructorScaleToDB = () => {
+    const payload = {
+      idPlatforms: platformRef.current.value,
+      idNPV: nvpRef.current.value,
+      idMaterial: materialRef.current.value,
+      idIndicator: indicatorRef.current.value,
+      idStrainGuages: strainGaugeRef.current.value,
+      idFastening: fasteningRef.current.value
+    }
+    axiosCLient.post('/addConstructorScale', payload)
+      .then(({ data }) => {
+        if (data) {
+          console.log(data);
+        }
+      })
+      .catch(err => {
+        console.log(err.response);
+        const response = err.response
+        if (response && response.status === 422) {
+          setErrors(response.data.errors)
+        }
+      })
+  }
+
   return (
     <div className={classes.Constructor}>
       <div className={classes.constructorContainer}>
@@ -174,7 +198,7 @@ const Constructor = () => {
           </div>
         </div>
         <div className={classes.buttonContainer}>
-          <button className={classes.saveButton}>Сохранить</button>
+          <button className={classes.saveButton} onClick={() => saveConstructorScaleToDB()}>Сохранить</button>
         </div>
       </div>
     </div>
