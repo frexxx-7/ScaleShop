@@ -1,0 +1,57 @@
+.ScaleBasket{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.scaleBasketContainer{
+  width: 95%;
+  height: 90%;
+  display: flex;
+}
+
+.scaleInfo{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 70%;
+}
+.scaleTitle{
+  display: flex;
+}
+.scaleTitle>p{
+  font-weight: 700;
+  font-size: 20px;
+  margin: 10px 0;
+  display: flex;
+}
+.scaleTitle>p:hover{
+  cursor: pointer;
+}
+.scalePrice>p{
+  color:#1f7d63;
+  margin: 10px 0;
+}
+.deleteScaleContainer{
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  flex-direction: column;
+}
+.deleteScale{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+.deleteScale>svg{
+  color:#aeaeae;
+  height: 20px;
+}
+.deleteScale>svg:hover{
+  color:#279b7a;
+  cursor: pointer;
+}
+.sumPriceScaleInPrice{
+  display: flex;
+  justify-content: end;
+  font-size: 20px;
+}

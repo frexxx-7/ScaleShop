@@ -1,14 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react'
 import classes from './Constructor.module.scss'
 import axiosCLient from '../../axios.client'
+import { useNavigate } from 'react-router-dom'
+import { useStateContext } from '../../context/ContextProvider'
 
 const Constructor = () => {
+  const {user} = useStateContext()
+
   const platformRef = useRef()
   const nvpRef = useRef()
   const materialRef = useRef()
   const indicatorRef = useRef()
   const strainGaugeRef = useRef()
   const fasteningRef = useRef()
+
+  const navigate = useNavigate()
 
   const [platformInfo, setPlatformInfo] = useState()
   const [fasteningInfo, setFasteningInfo] = useState()
@@ -98,7 +104,6 @@ const Constructor = () => {
     loadNPVInfo()
     loadStrainGauge()
   }, [])
-
   const saveConstructorScaleToDB = () => {
     const payload = {
       idPlatforms: platformRef.current.value,
@@ -106,12 +111,14 @@ const Constructor = () => {
       idMaterial: materialRef.current.value,
       idIndicator: indicatorRef.current.value,
       idStrainGuages: strainGaugeRef.current.value,
-      idFastening: fasteningRef.current.value
+      idFastening: fasteningRef.current.value,
+      idUser: user.id
     }
     axiosCLient.post('/addConstructorScale', payload)
       .then(({ data }) => {
         if (data) {
           console.log(data);
+          navigate('/basket')
         }
       })
       .catch(err => {

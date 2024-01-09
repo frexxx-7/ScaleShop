@@ -36,7 +36,7 @@ const Profile = () => {
       <div className={classes.profileContainer}>
         <div className={classes.profileAside}>
           <div className={classes.oneLinkContainer}>
-            <p className={classes.profileLink} onClick={() => navigate('/profile/orders')}>История заказов</p>
+            {/*<p className={classes.profileLink} onClick={() => navigate('/profile/orders')}>История заказов</p>*/}
           </div>
           <div className={classes.oneLinkContainer}>
             <p className={classes.profileLink} onClick={() => navigate('/profile/contacts')}>Контактные данные</p>
